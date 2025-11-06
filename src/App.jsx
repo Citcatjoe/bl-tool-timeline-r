@@ -1,12 +1,21 @@
-import { useState, useEffect } from 'react'; 
+import { useState, useEffect, useMemo, useRef } from 'react'; 
 import './App.scss';
-import Titlebar from './components/Titlebar/Titlebar';
-import Calendar from './components/Calendar/Calendar';
 import { fetchTeaserData } from './services/api';
-import { dataLayerPushView, dataLayerPushSeeAllClick, dataLayerPushLinkGlobalClick } from './services/analytics'; // Import des fonctions analytiques
+import { dataLayerPushView, dataLayerPushSeeAllClick, dataLayerPushLinkGlobalClick } from './services/analytics';
 import { db } from './services/firebase';
 import { doc, updateDoc, increment } from 'firebase/firestore';
 import LoadingOverlay from './components/LoadingOverlay/LoadingOverlay';
+import TwitterEmbed from './components/TwitterEmbed/TwitterEmbed';
+import InstagramEmbed from './components/InstagramEmbed/InstagramEmbed';
+import YouTubeEmbed from './components/YouTubeEmbed/YouTubeEmbed';
+import timelineData from './assets/json/data.json';
+
+import imgLa from './assets/img/la.png';
+import imgDc from './assets/img/dc.png';
+import imgDenver from './assets/img/denver.png';
+import imgMiami from './assets/img/miami.png';
+import imgNy from './assets/img/ny.png';
+import imgLivre from './assets/img/livre.jpg';
 
 // Déclaration du composant principal App
 function App() {
@@ -18,6 +27,7 @@ function App() {
     const [teaser, setTeaser] = useState(null);
     const [showAll, setShowAll] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [selectedFilter, setSelectedFilter] = useState(0); // Index du filtre sélectionné (0 = premier élément)
 
     // Fonction exécutée lorsque la page est chargée
     useEffect(() => {
@@ -88,27 +98,197 @@ function App() {
         incrementClickCounter(docId);
     };
 
-    return (
-       
-        <a href={teaser?.linkGlobalHref || '#'} id="link-global" className="block" target="_blank" onClick={handleLinkGlobalClick}>
-            <div className="App overflow-hidden relative p-5">
-                
-                <h1 className='bg-red-500 text-white text-6xl font-black p-8 border-4 border-yellow-400'>Hello TAILWIND TEST</h1>
+    // Mapping des noms d'images vers les variables importées
+    const imageMap = {
+        'imgLa': imgLa,
+        'imgDc': imgDc,
+        'imgDenver': imgDenver,
+        'imgMiami': imgMiami,
+        'imgNy': imgNy
+    };
 
+    // Fonction pour obtenir l'image correspondante
+    const getImageForItem = (imgName) => {
+        //console.log('Image demandée:', imgName, 'Résultat:', imageMap[imgName]);
+        return imageMap[imgName] || null;
+    };
 
-                <div className="absolute top-0 right-0 bottom-0 left-0 bg-cover bg-right -z-10 rounded-lg" style={{backgroundImage: `url(${teaser?.img})`}}></div>
-                <div className="absolute top-0 right-1/4 bottom-0 left-0 bg-cover bg-center -z-10 rounded-lg bg-gradient-to-r from-black to-transparent opacity-60"></div> 
-
-                <span id="label" className="block w-full underline text-sm mb-3">{teaser?.teaserLabel || ''}</span>
-                <span id="title" className="font-blickb block mb-5">{teaser?.teaserTitle || ''}</span>
-                <button id="btn-read" className="block text-white rounded-full">{teaser?.linkGlobalTxt || ''}</button>
-
-                {/* {loading && <LoadingOverlay />} */}
-            </div>
+    // Fonction pour gérer le changement de filtre avec animation
+    const handleFilterChange = (filterIndex) => {
+        // Si on change de filtre, on reset les animations
+        if (filterIndex !== selectedFilter) {
+            setSelectedFilter(filterIndex);
             
-        </a>
-        
-   
+            // Petit délai pour permettre au DOM de se mettre à jour
+            setTimeout(() => {
+                // Force le re-déclenchement de l'animation
+                const activeContent = document.querySelector('.timeline-content-active');
+                if (activeContent) {
+                    activeContent.classList.remove('timeline-content-active');
+                    // Force reflow
+                    activeContent.offsetHeight;
+                    activeContent.classList.add('timeline-content-active');
+                }
+            }, 10);
+        }
+    };
+
+    // Fonction pour rendre le contenu d'un élément (title, text, image)
+    const renderContent = (contentItems) => {
+        return contentItems.map((item, index) => {
+            switch(item.type) {
+                case 'title':
+                    return (
+                        <h3 key={index} className="timeline-title">
+                            {item.content}
+                        </h3>
+                    );
+                case 'text':
+                    return (
+                        <p key={index} className="timeline-p mb-4" dangerouslySetInnerHTML={{ __html: item.content }}>
+                        </p>
+                    );
+                case 'image': {
+                    // Support du sous-dossier via BASE_URL (Vite)
+                    const imgSrc = `${import.meta.env.BASE_URL}images/${item.src}`;
+                    return (
+                        <figure key={index} className="timeline-image">
+                            <img src={imgSrc} alt={item.alt} />
+                            {(item.caption || item.captionCredit) && (
+                                <figcaption className='text-xs py-2 border-b space-y-2'>
+                                    {item.caption && <span className='block color-text-default'>{item.caption}</span>}
+                                    {item.captionCredit && <span className='block color-text-weak'>{item.captionCredit}</span>}
+                                </figcaption>
+                            )}
+                        </figure>
+                    );
+                }
+                case 'tweet':
+                    return (
+                        <figure key={`${selectedFilter}-${index}`} className="timeline-tweet p-6 mb-4 mt-6 mb-6">
+                            <TwitterEmbed content={item.content} />
+                        </figure>
+                    );
+                case 'instagram':
+                    return (
+                        <figure key={`${selectedFilter}-${index}`} className="timeline-instagram p-6 mb-4 mt-6 mb-6">
+                            <InstagramEmbed content={item.content} />
+                        </figure>
+                    );
+                case 'youtube':
+                    return (
+                        <figure key={`${selectedFilter}-${index}`} className="timeline-youtube p-6 mb-4 mt-6 mb-6">
+                            <YouTubeEmbed content={item.content} />
+                        </figure>
+                    );
+                default:
+                    return null;
+            }
+        });
+    };
+
+    // Fonction pour rendre les éléments d'un filtre
+    const renderTimelineElements = (elements) => {
+        return elements.map((element) => (
+            <div key={element.id}>
+                <span className="timeline-entry-date text-sm">{element.date}</span>
+                <div className="timeline-entry mb-8 sm:mb-12">
+                    <div className="timeline-entry-header">
+                        <h3>{element.place}</h3>
+                        <h2 className="timeline-entry-title mb-3">{element.title}</h2>
+                        
+                    </div>
+                    <div className="timeline-entry-content">
+                        {renderContent(element.content)}
+                    </div>
+                </div>
+            </div>
+        ));
+    };
+
+    return (
+
+        <div id="timeline" className='App'>
+       
+            {/* <ul id='timeline-nav' className='flex w-full gap-3 xs:gap-5'>
+                {timelineData.timeline.map((item, index) => (
+                    <li 
+                        key={index}
+                        className="cursor-pointer flex flex-col items-center transition-colors flex-1 max-w-20"
+                        onClick={() => handleFilterChange(index)}
+                        title={item.name}
+                    >
+                        <figure className="relative w-full h-auto aspect-square rounded-full flex items-center justify-center text-sm font-bold bg-cover bg-center bg-no-repeat"
+                            style={{
+                                backgroundImage: `url(${getImageForItem(item.img)})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center'
+                            }}
+                        >
+                            {selectedFilter === index && <span className="isActive absolute w-full h-auto aspect-square border-3 border-blick inset-ring-3 inset-ring-white rounded-full"></span>}
+                        </figure>
+                        <span className={`text-xs text-center mt-2 ${selectedFilter === index ? 'text-blick' : 'text-gray-700'}`}>{item.name}</span>
+                    </li>
+                ))}
+            </ul>
+
+            <div className='mt-4 mb-7'>
+                <h1>{timelineData.timeline[selectedFilter]?.name}</h1><span className='h1-after'>, {timelineData.timeline[selectedFilter]?.title}</span>
+            </div> */}
+
+            <div id='timeline-content' className='border-l-3 border-blick pt-4 pb-4 pl-4'>
+                {timelineData.timeline.map((item, itemIndex) => (
+                    <div 
+                        key={itemIndex}
+                        className={`timeline-content ${
+                            selectedFilter === itemIndex 
+                                ? 'timeline-content-active block' 
+                                : 'timeline-content-hidden hidden'
+                        }`}
+                    >
+                        {renderTimelineElements(item.elements)}
+                    </div>
+                ))}
+            </div>
+
+            <figure id='pub'>
+                <h2 className='mb-6'>
+                    Retrouvez Richard Werly autour de son nouveau livre «Cette Amérique qui nous déteste» (Ed. Nevicata) 
+                </h2>
+                <div className="flex flex-col sm:flex-row gap-6 sm:gap-12">
+                    <div className="w-36 sm:w-48 sm:max-w-48 mx-auto sm:mx-0">
+                        <img className="w-full h-auto" src={imgLivre} alt="Couverture du livre 'Cette Amérique qui nous déteste' de Richard Werly" />
+                    </div>
+                     <div className='text-center sm:text-left'>
+                        <div className='mb-4'>
+                            <span className="block font-black underline mb-2">Vendredi 7 novembre à 17h30</span>
+                            <span className="block">Librairie Payot, Rive Gauche</span>
+                            <span className="block">Rue de la Confédération 7</span>
+                            <span className="block">Genève</span>
+                        </div>
+
+                        <div className='mb-4'>
+                            <span className="block font-black underline mb-2">Samedi 8 novembre à 11h00</span>
+                            <span className="block">Librairie Payot</span>
+                            <span className="block">Place Pépinet 4</span>
+                            <span className="block">Lausanne</span>
+                        </div>
+
+                        <div className=''>
+                            <span className="block font-black underline mb-2">Samedi 8 novembre à 16h00</span>
+                            <span className="block">Librairie Le Vent des Routes</span>
+                            <span className="block">Boulevard Helvétique 21</span>
+                            <span className="block">Genève</span>
+                        </div>
+                        
+                    </div>
+                </div>
+               
+                
+               
+            </figure>
+            {/* {loading && <LoadingOverlay />} */}
+        </div>
     );
 }
 

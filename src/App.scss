@@ -1,3 +1,6 @@
+@import "tailwindcss";
+
+
 @import './styles/_variables';
 //@import './styles/_fonts';
 
@@ -10,7 +13,10 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-
+body 
+{
+    background: var(--color-fill-default);
+}
 
 .App 
 {
@@ -66,3 +72,193 @@
 }
 
 
+
+
+h1 
+{
+    display: inline-block;
+    font-size: 22px;
+    font-family: BlickVariable;
+    font-weight: 700;
+    color: var(--color-text-default);
+
+    // span 
+    // {
+
+    //     @apply font-normal;
+
+    // }
+}
+
+.h1-after
+{
+    display: inline-block;
+    font-size: 22px;
+    font-family: BlickVariable;
+    font-weight: 100;
+    color: var(--color-text-default);
+
+}
+
+h3 
+{
+    color: var(--color-text-default);
+}
+
+h2 
+{
+    font-size: 19px;
+    font-family: BlickVariable;
+    font-weight: 700;
+    color: var(--color-text-default);
+    line-height: 22.8px;
+}
+
+.timeline-entry 
+{
+    border: 1px solid  var(--color-stroke-weak);
+    padding: 16px;
+
+    @media (max-width: $mobile) {
+        padding: 8px;
+    }
+    
+    
+}
+
+
+
+.timeline-entry-date
+{
+    color: var(--color-text-brand);
+    @apply block font-bold mb-6;
+    position: relative;
+
+    // Caret/triangle d'accroche sur le fil rouge
+    &::before {
+        content: '';
+        position: absolute;
+        left: -16px; // Positionnement sur le fil rouge (border-l-8 = 8px + quelques px)
+        top: 50%;
+        transform: translateY(-50%) rotate(180deg); // Rotation pour pointer vers la gauche
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 8px 8px 8px 0; // Triangle pointant vers la droite
+        border-color: transparent var(--color-fill-brand) transparent transparent;
+        z-index: 2;
+    }
+
+    // Cercle de base optionnel (point d'accroche)
+    &::after {
+        content: '';
+        position: absolute;
+        left: -25px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 8px;
+        background-color: var(--color-fill-brand);
+        border-radius: 50%;
+        z-index: 1;
+    }
+}
+
+// Animations pour le fade-in des éléments de timeline
+.timeline-content {
+    &.timeline-content-active {
+        .timeline-entry {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.3s ease-out forwards;
+            
+            // Décalage progressif pour chaque élément
+            &:nth-child(1) { animation-delay: 0ms; }
+            &:nth-child(2) { animation-delay: 50ms; }
+            &:nth-child(3) { animation-delay: 100ms; }
+            &:nth-child(4) { animation-delay: 150ms; }
+            &:nth-child(5) { animation-delay: 200ms; }
+            &:nth-child(6) { animation-delay: 250ms; }
+            &:nth-child(7) { animation-delay: 300ms; }
+            &:nth-child(8) { animation-delay: 350ms; }
+        }
+    }
+    
+    &.timeline-content-hidden {
+        .timeline-entry {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+    }
+
+    
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.border-blick
+{
+    border-color: var(--color-fill-brand);
+}
+
+figure 
+{
+    background-color: var(--color-fill-weak);
+     @apply p-3 md:p-6 mt-6 mb-6 ;
+
+     u { @apply font-bold; }
+
+    figcaption
+    {
+        //color: var(--color-text-weak);
+        border-color: var(--color-stroke-weak);
+    }
+}
+
+.bg-blick
+{
+    background-color: var(--color-fill-brand);
+}
+
+.text-blick
+{
+    color: var(--color-fill-brand);
+}
+
+.color-text-default
+{
+    color: var(--color-text-default);
+}
+
+.color-text-weak
+{
+    color: var(--color-text-weak);
+}
+
+p 
+{
+    color: var(--color-text-default);
+    @apply font-normal leading-relaxed;
+}
+
+p a 
+{
+    @apply underline font-bold;
+    color: var(--color-text-brand);
+}
+
+#pub 
+{
+    color: var(--color-text-weak);
+    margin-bottom: 0;
+}

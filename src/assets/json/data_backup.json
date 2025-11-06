@@ -1,0 +1,291 @@
+{
+  "timeline": [
+    {
+      "id": 1,
+      "name": "Los Angeles",
+      "title": "la diabolique",
+      "img": "imgLa",
+      "elements": [
+         {
+            "id": 3,
+            "title": "Réélection de Donald Trump",
+            "date": "5 novembre 2024",
+            "content": [
+              {
+                "type": "text",
+                "content": "Les résultats de l’élection présidentielle tombent : Donald J. Trump remporte un second mandat à la Maison-Blanche face à la démocrate Kamala Harris, après une campagne d’une rare agressivité."
+              },
+              {
+                "type": "text",
+                "content": "À Los Angeles, les réactions sont immédiates. Des milliers de personnes se rassemblent dans le centre-ville, sur Pershing Square et autour de City Hall, brandissant des pancartes “Not My President” et “Democracy Under Fire”."
+              },
+              {
+              "type": "image",
+              "src": "1.jpg",
+              "alt": "Photo de Donald Trump et Susie Wiles",
+              "caption": "Susie Wiles (deuxième à gauche) applaudit tandis que Donald Trump s’adresse à ses partisans lors de la soirée électorale au centre des congrès de West Palm Beach, en Floride, le 6 novembre 2024. Keystone"
+              },
+              {
+              "type": "image",
+              "src": "2.jpg",
+              "alt": "Photo de Donald formule ses voeux aux condamnés à mort",
+              "caption": "Donald Trump s'en est pris aux 37 condamnés à mort graciés par Joe Biden, qu'il a qualifié de « criminels les plus violents qui ont tué, violé et pillé comme pratiquement personne avant eux ». Reuters/Cheney Orr"
+              },
+              {
+              "type": "image",
+              "src": "3.jpg",
+              "alt": "Photo de Donald Trump et Elon Musk qui vivent leur bromance",
+              "caption": "Le président élu Donald Trump (à gauche) aux côtés de l’entrepreneur Elon Musk (au centre) et de son fils X (à droite) lors d’un meeting au Capital One Arena, à Washington, le 19 janvier 2025, à la veille de son investiture. Keystone"
+              },
+              {
+              "type": "image",
+              "src": "4.jpg",
+              "alt": "L'embusquade de Donald Trump à Volodymyr Zelensky le 28 février 2025",
+              "caption": "Le président ukrainien Volodymyr Zelensky (à gauche) s’entretient avec le président américain Donald Trump (au centre) et le vice-président JD Vance (à droite) dans le Bureau ovale de la Maison-Blanche, à Washington, le 28 février 2025, lors d’une visite consacrée à un accord sur le partage des ressources minières de l’Ukraine avec les États-Unis. Keystone"
+              },
+              {
+              "type": "image",
+              "src": "5.webp",
+              "alt": "Donald Trump à Wells Fargo Center le 22 mars 2025",
+              "caption": "Le président américain Donald Trump assiste au championnat universitaire masculin de lutte à Philadelphie, en Pennsylvanie, le 22 mars 2025. REUTERS/Nathan Howard"
+              },
+              {
+              "type": "image",
+              "src": "6.webp",
+              "alt": "Donald Trump brandit son panneau indquant les taxes douanières",
+              "caption": "Le 2 avril 2025, à la Maison-Blanche, le président américain Donald Trump présente un panneau détaillant les nouveaux tarifs douaniers instaurés par son administration. Getty"
+              },
+              {
+              "type": "image",
+              "src": "7.jpg",
+              "alt": "Le président américain Donald Trump rencontre le prince héritier saoudien Mohammed ben Salmane",
+              "caption": "Le président américain Donald Trump rencontre le prince héritier saoudien Mohammed ben Salmane au palais royal de Riyad, le 13 mai 2025, lors de son premier voyage à l’étranger depuis son retour à la Maison-Blanche. Keystone"
+              },
+              {
+              "type": "image",
+              "src": "8.jpg",
+              "alt": "Le président américain Donald Trump danse en prenant la parole à Fort Bragg",
+              "caption": "Le président américain Donald Trump danse en prenant la parole à Fort Bragg, en Caroline du Nord, le 10 juin 2025, lors des célébrations du 250ᵉ anniversaire de l’armée américaine. Keystone"
+              },
+              {
+              "type": "image",
+              "src": "9.jpg",
+              "alt": "Le président américain Donald Trump serre la main de la présidente de la Commission européenne, Ursula von der Leyen",
+              "caption": "Le président américain Donald Trump serre la main de la présidente de la Commission européenne, Ursula von der Leyen, à Turnberry, en Écosse, le 27 juillet 2025. Jacquelyn Martin/AP"
+              },
+              {
+              "type": "image",
+              "src": "10.png",
+              "alt": "Des bombardiers B-2 et des chasseurs F-35 survolent le tarmac alors que Donald Trump et Vladimir Poutine se rencontrent en Alaska.",
+              "caption": "Des bombardiers B-2 et des chasseurs F-35 survolent le tarmac alors que Donald Trump et Vladimir Poutine se rencontrent en Alaska. DR"
+              },
+              {
+              "type": "image",
+              "src": "11.png",
+              "alt": "Des milliers de manifestants se rassemblent du côté ouest du Capitole du Colorado à Denver, samedi, lors d’une protestation «No Kings», mouvement national de résistance contre les politiques de l’administration Trump.",
+              "caption": "Des milliers de manifestants se rassemblent du côté ouest du Capitole du Colorado à Denver, samedi, lors d’une protestation «No Kings», mouvement national de résistance contre les politiques de l’administration Trump. Kevin Mohatt pour le Colorado Newsline"
+              },
+              {
+              "type": "image",
+              "src": "12.jpg",
+              "alt": "Les interventions musclées de la police de l'immigration ne choquent pas le président américain Donald Trump",
+              "caption": "Les interventions musclées de la police de l'immigration ne choquent pas le président américain Donald Trump, qui les justifient par la lutte contre l'immigration illégale. REUTERS/Jim Vondruska"
+              },
+
+
+              {
+                "type": "text",
+                "content": "Dans les quartiers de Silver Lake et West Hollywood, des cortèges plus pacifiques s’organisent, mêlant slogans féministes et appels à la solidarité."
+              },
+               {
+                "type": "text",
+                "content": "Pendant ce temps, dans les collines d’Hollywood, quelques partisans de Trump célèbrent sa victoire lors d’une fête privée retransmise sur les réseaux sociaux, rapidement devenue virale."
+              }
+            ]
+          },
+       
+        {
+          "id": 2,
+          "title": "Hollywood et le cinéma",
+          "date": "3 mars 2025",
+          "content": [
+          
+            {
+              "type": "text",
+              "content": "Hollywood est devenu le centre de l'industrie cinématographique mondiale depuis le début du 20e siècle."
+            },
+            {
+                "type": "instagram",
+                "content": "https://www.instagram.com/p/DPzDjYVAOrG"
+            },
+            {
+                "type": "text",
+                "content": "Le succès du livre d'Eric Trump, 'The Art of the Deal', publié en 1987, contribue à sa renommée en tant qu'homme d'affaires et personnalité médiatique."
+                }
+           
+           
+          ]
+        },
+         
+          {
+            "id": 4,
+            "title": "Décret sur le golf et chaos à LAX",
+            "date": "2 janvier 2025",
+            "content": [
+              {
+                "type": "text",
+                "content": "Six semaines après sa réélection, Trump signe un décret présidentiel restreignant l’entrée sur le territoire pour plusieurs pays d’Amérique latine et du Moyen-Orient, invoquant « la sécurité nationale »."
+              },
+                {
+                "type": "tweet",
+                "content": "<blockquote class='twitter-tweet' data-media-max-width='560'><p lang='en' dir='ltr'>I had an amazing time filming with my Grandpa to kick off my new series called 1 on 1 with Kai. In the video, everyone gets to see the bond we have, especially on the golf course. This is my favorite video I have filmed so far and holds a lot of meaning to me. I hope you enjoy… <a href='https://t.co/kWQBLVvnjj'>pic.twitter.com/kWQBLVvnjj</a></p>&mdash; Kai Trump (@kaitrump) <a href='https://twitter.com/kaitrump/status/1977042287533125837?ref_src=twsrc%5Etfw'>October 11, 2025</a></blockquote> <script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>"
+                }
+            
+              
+            ]
+          },
+          {
+            "id": 5,
+            "title": "Afin de narguer la population, Donald Trump monte sa propre émision de télévision dans laquelle il pose les questions et donne les réponses.",
+            "date": "12 septembre 2025",
+            "content": [
+              {
+                "type": "text",
+                "content": "Mais la journée est loin d’être unanime : à quelques rues de là, des milliers de contre-manifestants se regroupent sur Sunset Boulevard pour dénoncer « le culte de la personnalité »."
+              },
+                {
+                "type": "youtube",
+                "content": "https://www.youtube.com/watch?v=bh7yy1wYBNw"
+                },
+                {
+                "type": "text",
+                "content": "La police met en place un cordon pour séparer les deux cortèges, évitant tout débordement majeur. Les médias locaux soulignent la division visible d’une ville qui se veut pourtant symbole de diversité et d’ouverture."
+              }
+            
+              
+            ]
+          }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Washington",
+      "title": "La capitale",
+      "img": "imgDc",
+      "elements": [
+        {
+          "id": 1,
+          "title": "La fondation de la capitale",
+          "date": "1790",
+          "content": [
+            {
+              "type": "title",
+              "content": "Washington DC : Le cœur politique",
+              "level": 1
+            },
+            {
+              "type": "text",
+              "content": "Washington DC est la capitale fédérale des États-Unis d'Amérique et le siège du gouvernement américain."
+            },
+            {
+              "type": "image",
+              "src": "/images/washington-capitol.jpg",
+              "alt": "Le Capitole de Washington",
+              "caption": "Le Capitole, siège du Congrès américain"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Denver",
+      "title": "Mile High City",
+      "img": "imgDenver",
+      "elements": [
+        {
+          "id": 1,
+          "title": "Mile High City",
+          "date": "1858",
+          "content": [
+            {
+              "type": "title",
+              "content": "Denver : La ville d'altitude",
+              "level": 1
+            },
+            {
+              "type": "text",
+              "content": "Denver, surnommée Mile High City, est située à exactement 1 mile au-dessus du niveau de la mer."
+            },
+            {
+              "type": "image",
+              "src": "/images/denver-mountains.jpg",
+              "alt": "Denver avec les montagnes Rocheuses",
+              "caption": "Denver avec les montagnes Rocheuses en arrière-plan"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Miami",
+      "title": "Magic City",
+      "img": "imgMiami",
+      "elements": [
+        {
+          "id": 1,
+          "title": "Art Déco et plages",
+          "date": "1920-1930",
+          "content": [
+            {
+              "type": "title",
+              "content": "Miami : La ville magique",
+              "level": 1
+            },
+            {
+              "type": "text",
+              "content": "Miami est célèbre pour ses plages, son architecture Art Déco et sa vie nocturne animée."
+            },
+            {
+              "type": "image",
+              "src": "/images/miami-beach.jpg",
+              "alt": "Plage de Miami Beach",
+              "caption": "Les célèbres plages de sable blanc de Miami Beach"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "New York",
+      "title": "The Big Apple",
+      "img": "imgNy",
+      "elements": [
+        {
+          "id": 1,
+          "title": "La Grande Pomme",
+          "date": "1624",
+          "content": [
+            {
+              "type": "title",
+              "content": "New York : La Grande Pomme",
+              "level": 1
+            },
+            {
+              "type": "text",
+              "content": "New York est la ville la plus peuplée des États-Unis et un centre financier mondial."
+            },
+            {
+              "type": "image",
+              "src": "/images/new-york-skyline.jpg",
+              "alt": "Skyline de Manhattan",
+              "caption": "L'iconique skyline de Manhattan"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
